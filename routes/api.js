@@ -112,6 +112,11 @@ router.post('/submissions/:formId', async (req, res) => {
 // GET /api/forms - Get all forms (for dashboard)
 router.get('/forms', async (req, res) => {
   try {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.setHeader('Surrogate-Control', 'no-store');
+
     const forms = await Form.find().sort({ createdAt: -1 });
     res.json(forms);
   } catch (error) {
