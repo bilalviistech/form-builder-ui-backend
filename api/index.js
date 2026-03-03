@@ -1,7 +1,7 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const apiRoutes = require("../routes/api");
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import apiRoutes from '../routes/api'
 
 const app = express();
 
@@ -78,4 +78,4 @@ app.use((err, req, res, next) => {
 });
 
 // ✅ IMPORTANT: export app (NO app.listen)
-module.exports = app;
+export default app;

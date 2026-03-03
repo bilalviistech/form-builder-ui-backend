@@ -1,10 +1,11 @@
-const express = require('express');
+import express from "express";
+import { v4 as uuidv4 } from "uuid";
+import nodemailer from "nodemailer";
+import Form from "../models/Form.js";
+import Submission from "../models/Submission.js";
+import "dotenv/config";
+
 const router = express.Router();
-const { v4: uuidv4 } = require('uuid');
-const nodemailer = require('nodemailer');
-const Form = require('../models/Form');
-const Submission = require('../models/Submission');
-require('dotenv').config();
 
 const EMAIL_USER="yourgmail@gmail.com"
 const EMAIL_PASS="your-app-password"
@@ -130,4 +131,4 @@ router.get('/submissions/:formId', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
